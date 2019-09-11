@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main page</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <div class='page'>
+        <p>Main page</p>
+           {% if user.is_authenticated %}
+         <p>User: {{ user.get_username }}</p>
+         <p><a href="">Logout</a></p>   
+        {% else %}
+         <p><a href="">Login</a></p>   
+        {% endif %} 
+        {% if data %}
+            {% for name, id in data %}
+                <div class='card'>
+                    <a href={% url 'card' id %}>Card name: {{ name }}, id: {{ id }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No cards.</p>
+        {% endif %}
+    </div>
+    </body>
+</html>

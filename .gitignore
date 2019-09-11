@@ -1,0 +1,6 @@
+**__pycache__/
+**migrations/
+cards_venv/
+*.geany
+db.sqlite3
+**fuse*
